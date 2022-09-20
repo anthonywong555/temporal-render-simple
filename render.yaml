@@ -91,13 +91,13 @@ services:
       type: pserv
       property: host
 - type: web
-  repo: https://github.com/render-examples/sample-temporal-app
+  repo: https://github.com/anthonywong555/temporalio-hello-world-js
   name: app-workflow-trigger
   plan: Starter
   region: oregon
-  env: go
-  buildCommand: go build start/main.go
-  startCommand: ./main
+  env: node
+  buildCommand: npm install
+  startCommand: npm run workflow
   envVars:
   - key: TEMPORAL_CLUSTER_HOST
     fromService:
@@ -105,13 +105,13 @@ services:
       type: pserv
       property: host
 - type: worker
-  repo: https://github.com/render-examples/sample-temporal-app
+  repo: https://github.com/anthonywong555/temporalio-hello-world-js
   name: app-worker
   plan: Starter
   region: oregon
-  env: go
-  buildCommand: go build worker/main.go
-  startCommand: ./main
+  env: node
+  buildCommand: npm install
+  startCommand: npm run start.watch
   envVars:
   - key: TEMPORAL_CLUSTER_HOST
     fromService:
