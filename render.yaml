@@ -105,13 +105,11 @@ services:
       type: pserv
       property: host
 - type: worker
-  repo: https://github.com/anthonywong555/temporalio-hello-world-js
+  repo: https://github.com/anthonywong555/temporalio-hello-world-js-app-worker-docker
   name: app-worker
   plan: Starter
   region: oregon
-  env: node
-  buildCommand: npm install
-  startCommand: npm run start.watch
+  env: docker
   envVars:
   - key: TEMPORAL_CLUSTER_HOST
     fromService:
